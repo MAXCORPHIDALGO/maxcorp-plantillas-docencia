@@ -1,0 +1,14 @@
+ET505 — versión resuelta para pruebas internas del docente
+
+Extraiga el ZIP completo y abra index.html en Chrome o Edge.
+También dispone de un HTML autónomo que abre directamente, sin extraer archivos.
+
+Pruebas con presupuesto de S/150:
+1. Cuadernos, 10 unidades, precio 5: total S/50 y saldo S/100.
+2. Cuadernos, 10 unidades, precio 15: total S/150 y saldo cero.
+3. Cuadernos, 10 unidades, precio 15.01: rechaza por exceso.
+4. Material vacío o cantidad 2.5: rechaza.
+5. Confirme uno válido e intente uno inválido: conserva el válido. Limpiar oculta la ficha.
+
+Comprobar no crea ficha; Confirmar sí. La información se pierde al recargar.
+El presupuesto original de S/150 se conserva como referencia docente. Los alumnos deben personalizar el suyo según la actividad.
