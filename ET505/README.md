@@ -3,4 +3,4 @@
 - `demo/`: versión resuelta para demostración.
 - `plantilla/`: versión para completar y personalizar.
 
-Siga los pasos para celular o tablet del README principal.
+Siga la [guía de GitHub](../guia-github/) para descargar el ZIP desde MAXEDRA, subir los archivos extraídos a su repositorio, editar desde el navegador o localmente en una PC y registrar las pruebas.
