@@ -1,1 +1,51 @@
-<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ET403 | MAXCORP</title><link rel="stylesheet" href="../styles.css"><main><a href="../">Volver a cursos</a><h1>ET403</h1><p>Espacio reservado para las plantillas de este curso. Todavía no hay archivos de trabajo publicados aquí.</p></main></html>
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ET403 · Calculadora resuelta para ejemplo en clase sem7</title><style>body{font:18px system-ui;max-width:700px;margin:30px auto;padding:20px}label{display:block;margin-top:16px}input,select,button{font:inherit;padding:10px}input{width:95%}button{margin-top:20px}#resultado{background:#eef3f8;padding:16px}</style></head>
+<body><p style="padding:12px;background:#eff6ff;border-left:4px solid #075bea"><strong>Copia resuelta para pruebas del docente.</strong> La plantilla de los alumnos conserva los tres pendientes.</p><h1>Calculadora ET403 · Semana 7</h1><p>Versión resuelta para revisar suma, división y mensajes de error. Valida entradas vacías, texto no numérico y divisor cero.</p>
+<section aria-labelledby="titulo-calculadora">
+    <h2 id="titulo-calculadora">1. Ejecutar mi versión</h2>
+    <label for="a">Primer dato</label><input id="a" type="text" value="12" autocomplete="off">
+    <label for="b">Segundo dato</label><input id="b" type="text" value="3" autocomplete="off">
+    <label for="operacion">Operación</label>
+    <select id="operacion"><option value="sumar">Sumar</option><option value="dividir">Dividir</option></select>
+    <button id="calcular" type="button">Calcular</button>
+    <p id="resultado" role="status" aria-live="polite">Pulse Calcular para probar.</p>
+  </section>
+<script>
+"use strict";
+document.getElementById("calcular").addEventListener("click", function () {
+  const textoA = document.getElementById("a").value.trim();
+  const textoB = document.getElementById("b").value.trim();
+  const operacion = document.getElementById("operacion").value;
+  const salida = document.getElementById("resultado");
+
+  // Validación 1: detecta una entrada vacía.
+  if (textoA === "" || textoB === "") {
+    salida.style.color = "#b91c1c"; salida.textContent = "Complete las dos entradas.";
+    return;
+  }
+
+  const a = Number(textoA);
+  const b = Number(textoB);
+
+  // Validación 2: rechaza texto no numérico y números no finitos.
+  if (!Number.isFinite(a) || !Number.isFinite(b)) {
+    salida.style.color = "#b91c1c"; salida.textContent = "Escriba números válidos en ambas entradas.";
+    return;
+  }
+
+  // Validación 3: impide dividir entre cero.
+  if (operacion === "dividir" && b === 0) {
+    salida.style.color = "#b91c1c"; salida.textContent = "No se puede dividir entre cero.";
+    return;
+  }
+
+  salida.style.color = "#166534"; if (operacion === "sumar") {
+    salida.textContent = "Suma: " + (a + b);
+  } else {
+    salida.textContent = "División: " + (a / b);
+  }
+});
+</script>
+</body>
+</html>
