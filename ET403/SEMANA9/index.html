@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ET403 · Calculadora con conversor</title>
+<link rel="stylesheet" href="./styles.css">
+<script src="./app.js" defer></script>
+</head>
+<body>
+<header><span class="badge">ET403 · SEMANA 9</span><h1>Una calculadora, nuevas posibilidades.</h1><p>Conservamos la suma y la división de semana 7 y añadimos un conversor de unidades.</p></header>
+<main>
+<section class="card" aria-labelledby="titulo-calculadora">
+<span class="numero">01 / CALCULAR</span><h2 id="titulo-calculadora">Calculadora original</h2>
+<form id="calc-form" novalidate>
+<div class="datos"><div><label for="a">Primer número</label><input id="a" type="text" inputmode="decimal" value="12" autocomplete="off"></div><div><label for="b">Segundo número</label><input id="b" type="text" inputmode="decimal" value="3" autocomplete="off"></div></div>
+<label for="operacion">¿Qué deseas hacer?</label><select id="operacion"><option value="sumar">Sumar</option><option value="dividir">Dividir</option></select>
+<button id="calcular" type="submit">Calcular resultado</button><p id="resultado" class="salida" role="status" aria-live="polite">Tu resultado aparecerá aquí.</p>
+</form></section>
+<section class="card" aria-labelledby="conv-titulo">
+<span class="numero">02 / CONVERTIR</span><h2 id="conv-titulo">Conversor de unidades</h2>
+<form id="conv-form" novalidate>
+<label class="etiqueta-conversion" for="conv-valor">Cantidad que deseo convertir</label><input id="conv-valor" type="text" inputmode="decimal" placeholder="Ejemplo: 1.5" autocomplete="off">
+<label for="conv-operacion">Elige una conversión</label><select id="conv-operacion"></select>
+<button type="submit">Convertir cantidad</button><p id="conv-salida" class="salida" role="status" aria-live="polite">Ejemplo: 1 metro equivale a 100 centímetros.</p>
+</form></section>
+<section class="card guia"><h2>Tres archivos trabajan juntos</h2><p><strong>index.html</strong> organiza los campos. <strong>styles.css</strong> define tamaños y colores RGB. <strong>app.js</strong> valida, calcula y usa una lista de objetos de conversión.</p><p>Prueba el cero, un decimal, una entrada vacía y un número negativo. En el conversor, solo se aceptan cantidades mayores o iguales a cero.</p><a href="../index.html">Ver la versión original de semana 7 ↗</a></section>
+</main><footer>ET403 · Ejemplo docente resuelto · Personaliza, prueba y documenta tus cambios.</footer>
+</body></html>
