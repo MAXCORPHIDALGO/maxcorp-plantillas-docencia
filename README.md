@@ -2,46 +2,26 @@
 
 Materiales organizados por curso: **ET403 / ET505 / ET203 / ET502**.
 
-ET505 tiene la demostración resuelta y la plantilla de semana 7. Los otros cursos son espacios reservados; todavía no contienen actividades.
+| Curso | Material disponible |
+|---|---|
+| [ET403](ET403/) | [Semana 9: calculadora con conversor](ET403/SEMANA9/) y materiales anteriores |
+| [ET505](ET505/) | [Semana 9: planificador con kardex](ET505/SEMANA9/), con [código completo docente](ET505/SEMANA9/demo/) y [plantilla incompleta](ET505/SEMANA9/plantilla/); S7 conservado |
+| [ET203](ET203/) / [ET502](ET502/) | Espacios reservados |
 
-## Guía para alumnos y docente
+## ET505 · Semana 9 vigente
 
-[Abra la guía para proyectar y seguir paso a paso](https://maxcorphidalgo.github.io/maxcorp-plantillas-docencia/guia-github/).
+Amplía S7/S8: conserva cálculo, presupuesto y validaciones; agrega búsqueda, edición por id, eliminación segura/inactivación, entradas/salidas, existencia física, localStorage/JSON y CSV. [Guía de integración, clase y pruebas](ET505/SEMANA9/README.md).
 
-- [Descargar PDF](guia-github/GUIA_MAXEDRA_GITHUB_TRABAJO_REMOTO.pdf)
-- [Descargar Word](guia-github/GUIA_MAXEDRA_GITHUB_TRABAJO_REMOTO.docx)
+Cada versión contiene **cinco archivos**: `index.html`, `styles.css`, `app.js`, `kardex.js`, `README.md`. Abra localmente HTML con scripts y estilos juntos. Demo resuelta; plantilla con cuatro TODO explícitos que aún no acredita pruebas S9.
 
-## Recorrido del estudiante
+Prima la [tarea 24 de MAXEDRA](https://maxedra.maxcorpsystem.com/courses/3/assignments/24): individual, **sin exposición**, **31/10/2026 20:00 Perú**, cuatro criterios de 5 (total 20), niveles 5/3/2/1. Un PDF en MAXEDRA con proceso, antes/después, pruebas, enlaces y registro IA; código/README en GitHub. No se exige carpeta evidencias. Datos ficticios; PDF personal y claves fuera del repositorio público.
 
-1. Descargue el ZIP actualizado desde su curso en MAXEDRA y extráigalo.
-2. Cree su cuenta en https://github.com/signup y confirme su correo.
-3. Cree un repositorio propio, por ejemplo `et505-planificador`, público para este flujo de GitHub Pages con GitHub Free.
-4. Suba los cuatro archivos extraídos al nivel principal: `index.html`, `styles.css`, `app.js` y `README.md`. No suba solamente el ZIP. Confirme con **Commit changes**.
-5. Complete y personalice su aplicación usando una de las dos opciones siguientes.
-6. Active **Settings → Pages → Deploy from a branch → main → /(root) → Save**. Espere a que termine la publicación y abra el enlace que muestre GitHub.
-7. Pruebe, tome capturas y complete el informe PDF indicado en MAXEDRA.
+## Guías e histórico
 
-### Opción A: navegador, celular o tablet
+La [guía general GitHub](guia-github/) y sus [PDF](guia-github/GUIA_MAXEDRA_GITHUB_TRABAJO_REMOTO.pdf) / [Word](guia-github/GUIA_MAXEDRA_GITHUB_TRABAJO_REMOTO.docx) conservan el flujo anterior. Para ET505 S9 consulte la guía vigente y sus cinco archivos. Publicar el repositorio/sitio propios del estudiante según MAXEDRA no equivale a publicar este catálogo docente.
 
-En su repositorio abra `app.js` y pulse el lápiz **Edit this file**. Complete los tres TODO según la guía de programación y guarde con **Commit changes** en main. Personalice `index.html`, el presupuesto de `app.js` y su `README.md`. Pruebe en GitHub Pages después de cada publicación. La vista de código de github.com no ejecuta la aplicación.
+`ET505/demo`, `ET505/plantilla`, `ET505/descargas` son S7: sin cambios, con sus fechas y evaluación originales. El plazo 17/10 y la exposición en esos documentos son historia S7, no requisitos S9. ET403 mantiene sus instrucciones y materiales.
 
-### Opción B: localmente en una PC
+## Revisión y entornos del catálogo docente
 
-Edite los archivos extraídos con un editor de texto. Guarde y abra `index.html` con Chrome o Edge; recargue después de cada cambio. No necesita Node ni un servidor para esta plantilla. Suba sus archivos actualizados con **Add file → Upload files** y confirme el cambio. Si después editó en GitHub, descargue la última versión antes de continuar localmente para evitar reemplazarla con archivos antiguos.
-
-## Para el docente
-
-La demostración resuelta de este catálogo está en **ET505/demo**. Edite `ET505/demo/app.js` y `ET505/demo/index.html` para demostrar cambios desde su tablet. Su página se actualiza cuando GitHub completa la publicación. El presupuesto inicial es S/150.
-
-Prueba válida: 10 unidades a S/15.00. Prueba de exceso: 10 unidades a S/15.01. Ambos botones muestran errores rojos diferenciados; el último pedido válido se conserva.
-
-La plantilla de referencia está en **ET505/plantilla**. Los alumnos que siguen el ZIP de MAXEDRA tienen los cuatro archivos en la raíz de su propio repositorio, sin esas subcarpetas del catálogo docente.
-
-## Entrega académica
-
-El trabajo ET505 sigue siendo individual. Se conserva el PDF de MAXEDRA, plazo 17/10/2026 20:00 Perú y rúbrica de 15 puntos de trabajo + 5 de exposición individual, cuarto criterio. Crear la cuenta o subir la plantilla no acredita por sí solo los criterios. Debe personalizar, probar y explicar su trabajo. Use datos ficticios; mantenga informes personales y contraseñas fuera del repositorio público.
-
-## Referencias
-
-- https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
-- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Rama **DEV**, PR en borrador. Flujo: **DEV → STAGING → PRODUCCIÓN**; producción requiere GO explícito. No se configura ni ejecuta despliegue o GitHub Pages con este paquete. Verificación: `node --test tests/et505-s9.test.cjs`; resultados y límites en el PR.

@@ -1,0 +1,31 @@
+name: ET505 S9 checks
+on:
+  pull_request:
+    paths:
+      - 'ET505/**'
+      - 'tests/et505-s9.test.cjs'
+      - 'README.md'
+      - 'index.html'
+      - '.github/workflows/et505-s9-checks.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Reglas, interfaz, plantilla y regresión S7
+        run: node --test tests/et505-s9.test.cjs
+      - name: Sintaxis de ambas versiones
+        run: |
+          node --check ET505/SEMANA9/demo/app.js
+          node --check ET505/SEMANA9/demo/kardex.js
+          node --check ET505/SEMANA9/plantilla/app.js
+          node --check ET505/SEMANA9/plantilla/kardex.js
