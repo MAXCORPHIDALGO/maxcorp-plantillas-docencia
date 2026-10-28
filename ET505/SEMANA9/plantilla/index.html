@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ET505 · Plantilla por completar · Semana 9</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body><main>
+  <small>ET505 · Semana 9 · Plantilla del estudiante por completar</small>
+  <h1>Planificador de materiales y kardex</h1>
+  <aside class="pendiente"><strong>Plantilla incompleta: cuatro ejercicios pendientes en kardex.js.</strong> Alta y búsqueda están resueltas. Edición, retiro, movimientos y CSV muestran avisos TODO hasta que los implemente. El planificador S7 funciona. Esta plantilla aún no acredita las pruebas de S9. Siga README.md y personalice su trabajo.</aside>
+  <p>Prepare un pedido con S/ 150.00 y registre por separado el movimiento físico de materiales ficticios. Simulación sin compras ni envíos.</p>
+  <nav aria-label="Secciones"><a href="#planificador">Pedido y presupuesto</a> · <a href="#kardex">Kardex</a> · <a href="README.md">Guía de integración y pruebas</a></nav>
+  <section id="planificador">
+    <h2>1. Planificador S7 conservado</h2>
+    <p>Confirmar una simulación calcula el saldo monetario. No genera entradas de almacén. Limpiar sólo borra la ficha del pedido; no el kardex.</p>
+    <form id="formulario" novalidate>
+      <label for="material">Material para la actividad escolar</label>
+      <input id="material" maxlength="60" placeholder="Ejemplo: cuaderno" autocomplete="off">
+      <div class="grid"><div><label for="cantidad">Cantidad de unidades</label><input id="cantidad" type="number" min="1" max="30" step="1"></div>
+      <div><label for="precio">Precio por unidad en soles</label><input id="precio" type="number" min="0.01" max="50" step="0.01"></div></div>
+      <button id="comprobar" type="button">Comprobar pedido</button><button type="submit">Confirmar simulación</button>
+      <p id="mensaje" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+    </form>
+    <h3>Último pedido válido</h3><p id="vacio">Todavía no ha confirmado un pedido.</p><div id="ficha" hidden></div>
+    <button id="limpiar" type="button">Limpiar pedido</button>
+  </section>
+  <section id="kardex">
+    <h2>2. Kardex · Existencia física</h2>
+    <p>Existencia = entradas − salidas, en unidades. Cada material tiene un código permanente. Los datos se guardan como JSON en este navegador y origen.</p>
+    <p id="k-mensaje" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+    <fieldset id="k-controles">
+      <legend>Materiales y movimientos</legend>
+      <form id="k-alta" novalidate>
+        <label for="k-nombre">Nombre del material del aula</label><input id="k-nombre" maxlength="60" autocomplete="off">
+        <button type="submit">Añadir material</button>
+      </form>
+      <label for="k-busqueda">Buscar por código o nombre</label><input id="k-busqueda" type="search" autocomplete="off" placeholder="Ejemplo: MAT-0001 o cuaderno">
+      <p>Buscar vacía la selección anterior. Elija una fila antes de editar o registrar movimientos.</p>
+      <div class="tabla"><table><caption>Materiales registrados</caption><thead><tr><th>Código</th><th>Nombre</th><th>Estado</th><th>Existencia (unidades)</th><th>Selección</th></tr></thead><tbody id="k-materiales"></tbody></table></div>
+      <p id="k-seleccion">Ningún material seleccionado.</p>
+      <fieldset id="k-elegido" disabled>
+        <legend>Operar sobre el código seleccionado</legend>
+        <form id="k-edicion" novalidate><label for="k-nuevo-nombre">Nuevo nombre</label><input id="k-nuevo-nombre" maxlength="60"><button type="submit">Guardar nombre</button></form>
+        <button id="k-eliminar" type="button">Eliminar o inactivar seleccionado</button>
+        <form id="k-movimiento" novalidate>
+          <div class="grid"><div><label for="k-tipo">Tipo de movimiento</label><select id="k-tipo"><option value="entrada">Entrada</option><option value="salida">Salida</option></select></div>
+          <div><label for="k-cantidad">Cantidad física (entero positivo)</label><input id="k-cantidad" type="number" min="1" step="1"></div></div>
+          <button id="k-registrar" type="submit">Registrar movimiento</button>
+        </form>
+      </fieldset>
+      <h3>Historial completo</h3><p>Se conserva aunque un material quede inactivo. El nombre registrado muestra cómo se llamaba al moverlo.</p>
+      <div class="tabla"><table><caption>Movimientos y existencia después de cada operación</caption><thead><tr><th>Movimiento</th><th>Fecha</th><th>Material</th><th>Nombre registrado</th><th>Tipo</th><th>Cantidad</th><th>Existencia</th></tr></thead><tbody id="k-historial"></tbody></table></div>
+      <button id="k-csv" type="button">Exportar movimientos CSV</button>
+    </fieldset>
+  </section>
+  <footer>Datos ficticios. Al completar los TODO, el kardex conservará movimientos al recargar y exportará una copia CSV para Excel. Las altas ya persisten. La ficha S7 sólo permanece en esta sesión. <a href="../">Volver a semana 9</a></footer>
+</main>
+<script src="app.js"></script>
+<script src="kardex.js"></script>
+</body></html>
